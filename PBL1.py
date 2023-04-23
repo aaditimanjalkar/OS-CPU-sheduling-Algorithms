@@ -233,24 +233,12 @@ def app_layout():
   if 'FCFS' in algo:
     st.subheader("FCFS")
     st.write("FCFS is an operating system scheduling algorithm that executes queued request and processes arrives in their order. The name itself suggest that the process which arrive first gets executed first. The process which request the CPU first, get the CPU allocation first. Usually it is managed by FIFO queue. It is simplest form of CPU scheduling algorithm.")
-    st.subheader("Advantages")
-    st.write("It supports non-preemptive and pre-emptive scheduling algorithm. It is easy to implement and use.")
-    st.subheader("DisAdvantages")
-    st.write("The average waiting time is very high. There is no ideal technique for time-sharing systems. It is not very efficient.")
-  if 'SJF'in algo:
+    if 'SJF'in algo:
     st.subheader("SJF")
     st.write("SJF scheduling algorithm, schedules the processes according to their burst time. The process having the smallest execution time is chosen for the next execution. It reduces the average waiting time for other processes awaiting execution. It is associated with each job as a unit of time to complete.It can improve process throughput by making sure that shorter jobs are executed first, hence possibly have a short turnaround time.")
-    st.subheader("Advantages")
-    st.write("Works for both preemptive and non-preemptive.Frequently used for long term scheduling.Reduces The average waiting time over FIFO algorithm.This method is helpful for batch-type processing, where waiting for jobs to complete is not critical.Optimal with regard to average turn around time.")
-    st.subheader("DisAdvantages")
-    st.write("SJF can’t be implemented for CPU scheduling for the short term. It is because there is no specific method to predict the length of the upcoming CPU burst.Requires knowledge of how long a process or job will run.It leads to the starvation that does not reduce average turnaround time.It is hard to know the length of the upcoming CPU request.")
-  if 'Round Robin' in algo:
+    if 'Round Robin' in algo:
     st.subheader("Round Robin")
     st.write("RR is a CPU scheduling algorithm where each process is assigned a fixed time slot in a cyclic way, where each process gets equal share in time processing. RR is a hybrid model which is clock-driven. In this, CPU is shifted to the next process after fixed interval time, which is called time quantum/time slice. Time slice should be minimum, which is assigned for a specific task that needs to be processed. However, it may differ OS to OS.")
-    st.subheader("Advantages")
-    st.write("A round-robin scheduler generally employs time-sharing, giving each job a time slot or quantum. Each process get a chance to reschedule after a particular quantum time in this scheduling. All the jobs get a fair allocation of CPU.It deals with all process without any priority.This scheduling method does not depend upon burst time. That’s why it is easily implementable on the system.It gives the best performance in terms of average response time.")
-    st.subheader("DisAdvantages")
-    st.write("Gantt chart seems to come too big (if quantum time is less for scheduling.For Example:1 ms for big scheduling.)There is low throughput and context switches.Lower time quantum results in higher the context switching overhead in the system.Finding a correct time quantum is a quite difficult task in this system.If slicing time of OS is low, the processor output will be reduced.")
     time_quanta=st.number_input(label="Time Quantum",min_value=1, max_value=10,step=1,key="RR_quantum") #input for time quantum
   
   #the process is limited to 8 because otherwise the integers are not visible in the input box
